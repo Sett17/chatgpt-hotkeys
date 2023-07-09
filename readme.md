@@ -6,11 +6,15 @@ ChatGPT Hotkeys is a Chrome extension that adds hotkeys to the ChatGPT website. 
 
 ## Features
 
-| Keys      | Function                                             |
-| --------- | ---------------------------------------------------- |
-| Alt + D   | Deletes the current note                             |
-| Alt + N   | Creates a new note                                   |
-| Alt + 0-9 | Opens the note corresponding to the specified number |
+| Keys    | Function                          |
+| ------- | --------------------------------- |
+| Alt + D | Deletes the current note          |
+| Alt + N | Creates a new note                |
+| Alt + 0 | Selects GPT-3 Model               |
+| Alt + 1 | Selects first model under GPT-4   |
+| Alt + 2 | Selects seconds model under GPT-4 |
+| Alt + 3 | Selects third model under GPT-4   |
+| Alt + 4 | Selects fourth model under GPT-4  |
 
 ## Installation
 
@@ -28,16 +32,6 @@ There are two ways to install ChatGPT Hotkeys:
 2. Open Google Chrome and go to chrome://extensions.
 3. Enable Developer mode by toggling the switch in the top-right corner.
 4. Click on "Load unpacked" and select the folder where you cloned the repository.
-
-## Usage
-
-Once installed, simply navigate to the ChatGPT website and use the following hotkeys:
-
-- Alt + D: Delete current note
-- Alt + N: Create new note
-- Alt + 0-9: Open n\`th note
-
-You can view the list of hotkeys in the console by opening the Developer Tools (Ctrl + Shift + I or Cmd + Shift + I) and navigating to the Console tab.
 
 ## Contributions
 
