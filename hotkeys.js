@@ -2,9 +2,13 @@ console.debug("Hotkeys loaded")
 
 //use console table to print all hotkeys and what they do
 console.table([
-    { "keys": "alt + d", "description": "delete current note" },
-    { "keys": "alt + n", "description": "create new note" },
-    { "keys": "alt + 0-9", "description": "open n`th note" },
+    { "keys": "alt + d", "description": "delete current chat" },
+    { "keys": "alt + n", "description": "create new chat" },
+    { "keys": "alt + 0", "description": "selects gpt-3 model" },
+    { "keys": "alt + 1", "description": "selects first model in GPT-4 class" },
+    { "keys": "alt + 2", "description": "selects second model in GPT-4 class" },
+    { "keys": "alt + 3", "description": "selects third model in GPT-4 class" },
+    { "keys": "alt + 4", "description": "selects fourth model in GPT-4 class" },
 ])
 
 document.onkeydown = async function (e) {
@@ -17,14 +21,24 @@ document.onkeydown = async function (e) {
         clickNew()
         e.preventDefault()
     }
-
-    if (e.altKey && e.key >= 0 && e.key <= 9) {
-        const idx = parseInt(e.key)
-        const notes = document.querySelectorAll("nav > div > div > a")
-        console.debug("notes", notes)
-        if (idx <= notes.length) {
-            notes[idx - 1].click()
-        }
+    if (e.altKey && e.key === "0") {
+        clickGpt3()
+        e.preventDefault()
+    }
+    if (e.altKey && e.key === "1") {
+        clickModel(1)
+        e.preventDefault()
+    }
+    if (e.altKey && e.key === "2") {
+        clickModel(2)
+        e.preventDefault()
+    }
+    if (e.altKey && e.key === "3") {
+        clickModel(3)
+        e.preventDefault()
+    }
+    if (e.altKey && e.key === "4") {
+        clickModel(4)
         e.preventDefault()
     }
 }
@@ -57,3 +71,23 @@ function confirmDelete() {
 function clickNew() {
     document.querySelector("nav > a:first-child").click()
 }
+
+function clickGpt3() {
+    document.querySelector(`ul > li:nth-child(1) > button`).click()
+}
+
+function mouseoverGpt4() {
+    let event = new MouseEvent('mouseover', {
+        'view': window,
+        'bubbles': true,
+    })
+    document.querySelector(`ul > li:nth-child(2)`).dispatchEvent(event)
+}
+
+function clickModel(number) {
+    mouseoverGpt4()
+    window.setTimeout(() => {
+        document.querySelector(`body > div[data-radix-popper-content-wrapper] > div > div > div:nth-child(2) > div:nth-child(${number})`).click()
+    }, 10)
+}
+
