@@ -69,7 +69,7 @@ function confirmDelete() {
 }
 
 function clickNew() {
-    document.querySelector("nav > a:first-child").click()
+    document.querySelector("nav > div > a:first-child").click()
 }
 
 function clickGpt3() {
