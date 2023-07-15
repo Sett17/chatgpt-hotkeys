@@ -10,7 +10,7 @@ console.table([
     { "keys": "alt + 4", "description": "selects fourth model in GPT-4 class" },
 ])
 
-document.onkeydown = async function (e) {
+document.onkeydown = async function(e) {
     if (e.altKey && e.key === "d") {
         clickBin()
         window.setTimeout(confirmDelete, 20)
@@ -38,6 +38,14 @@ document.onkeydown = async function (e) {
     }
     if (e.altKey && e.key === "4") {
         clickModel(4)
+        e.preventDefault()
+    }
+    if ((e.altKey && e.key === "ArrowDown") || (e.altKey && e.key === "j")) {
+        selectNextChat()
+        e.preventDefault()
+    }
+    if ((e.altKey && e.key === "ArrowUp") || (e.altKey && e.key === "k")) {
+        selectPreviousChat()
         e.preventDefault()
     }
 }
@@ -90,3 +98,40 @@ function clickModel(number) {
     }, 10)
 }
 
+function selectNextChat() {
+    let chats = document.querySelectorAll('nav div ol li a')
+    let selectedIndex = undefined
+    for (let i = 0; i < chats.length; i++) {
+        if (chats[i].classList.contains('bg-gray-800')) {
+            selectedIndex = i
+            break
+        }
+    }
+
+    if (selectedIndex === undefined) {
+        chats[0].click()
+    } else {
+        if (selectedIndex < chats.length - 1) {
+            chats[selectedIndex + 1].click()
+        }
+    }
+}
+
+function selectPreviousChat() {
+    let chats = document.querySelectorAll('nav div ol li a')
+    let selectedIndex = undefined
+    for (let i = 0; i < chats.length; i++) {
+        if (chats[i].classList.contains('bg-gray-800')) {
+            selectedIndex = i
+            break
+        }
+    }
+
+    if (selectedIndex === undefined) {
+        chats[chats.length - 1].click()
+    } else {
+        if (selectedIndex > 0) {
+            chats[selectedIndex - 1].click()
+        }
+    }
+}

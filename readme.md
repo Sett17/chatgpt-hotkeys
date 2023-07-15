@@ -15,6 +15,10 @@ ChatGPT Hotkeys is a Chrome extension that adds hotkeys to the ChatGPT website. 
 | Alt + 2 | Selects seconds model under GPT-4 |
 | Alt + 3 | Selects third model under GPT-4   |
 | Alt + 4 | Selects fourth model under GPT-4  |
+| Alt + ↓ | Selects the next conversation     |
+| Alt + j | Selects the next conversation     |
+| Alt + ↑ | Selects the previous conversation |
+| Alt + k | Selects the previous conversation |
 
 ## Installation
 
