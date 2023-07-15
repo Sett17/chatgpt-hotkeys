@@ -1,6 +1,5 @@
 console.debug("Hotkeys loaded")
 
-//use console table to print all hotkeys and what they do
 console.table([
     { "keys": "alt + d", "description": "delete current chat" },
     { "keys": "alt + n", "description": "create new chat" },
